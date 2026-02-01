@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your App on the App Store - Vibe Coding Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.02) 2px,
+                    rgba(0, 0, 0, 0.02) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.02) 2px,
+                    rgba(0, 0, 0, 0.02) 4px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #4a5568;
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: #764ba2;
+            font-weight: 700;
+        }
+
+        .hero-image {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            display: block;
+        }
+
+        .benefits {
+            text-align: left;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+        }
+
+        .benefit-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        .benefit-text strong {
+            color: #1a1a1a;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .benefit-text p {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .form-section p {
+            color: #4a5568;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .guarantee-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 3px solid #48bb78;
+        }
+
+        .guarantee-section h3 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .guarantee-section p {
+            font-size: 18px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .guarantee-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .curriculum-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .curriculum-section h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .curriculum-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .curriculum-column {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .curriculum-column h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #764ba2;
+        }
+
+        .curriculum-column ul {
+            list-style: none;
+        }
+
+        .curriculum-column li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: #2d3748;
+        }
+
+        .curriculum-column li:last-child {
+            border-bottom: none;
+        }
+
+        .curriculum-column li::before {
+            content: '✓ ';
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .testimonial-placeholder {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            color: #4a5568;
+        }
+
+        .privacy-note {
+            text-align: center;
+            color: #718096;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .hero-section {
+                padding: 40px 25px;
+            }
+
+            .hero-image {
+                margin: 30px auto;
+                border-radius: 10px;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .curriculum-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .curriculum-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="content">
+                <div class="badge">🚀 THE VIBE CODING COURSE OF THE CENTURY</div>
+                <h1>Get Your App on the App Store in 30 Days—<br>No Code Required</h1>
+                <p class="subtitle">Use AI to build a <span class="highlight">complete mobile app</span> from idea to App Store launch. We guarantee you'll ship your app or get your money back.</p>
+
+                <img src="nexus app emporium.png" alt="Nexus App Emporium - Course Preview" class="hero-image">
+
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🤖</div>
+                        <div class="benefit-text">
+                            <strong>Build Without Writing Code</strong>
+                            <p>Let AI generate your entire app. You focus on the idea, AI handles the technical heavy lifting.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-text">
+                            <strong>Go From Zero to App Store</strong>
+                            <p>Master prompting, editing, security, database setup, authentication, payments, and App Store submission.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div class="benefit-text">
+                            <strong>Beginner to Advanced Path</strong>
+                            <p>Start with the basics and progress to cloud code implementation for production-ready apps.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✅</div>
+                        <div class="benefit-text">
+                            <strong>Guaranteed App Store Launch</strong>
+                            <p>We personally help every student get their app approved and live on the App Store—or full refund.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Join the Waitlist</h2>
+            <p>Limited spots available. Be the first to know when enrollment opens.</p>
+            <form id="waitlist-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="app-idea">What's your app idea? (Optional)</label>
+                    <input type="text" id="app-idea" name="app-idea" placeholder="e.g., A fitness tracker for busy parents">
+                </div>
+                <button type="submit" class="cta-button">Get Early Access →</button>
+                <p class="privacy-note">🔒 Your information is safe. We'll never spam or share your email.</p>
+            </form>
+        </div>
+
+        <div class="guarantee-section">
+            <div class="guarantee-icon">💯</div>
+            <h3>100% Money-Back Guarantee</h3>
+            <p>If you complete the course and don't get your app on the App Store, we'll refund every penny. We're that confident in our system and our commitment to your success.</p>
+        </div>
+
+        <div class="curriculum-section">
+            <h2>What You'll Master</h2>
+            <div class="curriculum-columns">
+                <div class="curriculum-column">
+                    <h3>🌱 Beginner Section</h3>
+                    <ul>
+                        <li>Finding and validating your app idea</li>
+                        <li>Writing your first AI prompt</li>
+                        <li>Generating your app structure</li>
+                        <li>Editing and customizing your app</li>
+                        <li>Basic security best practices</li>
+                        <li>Testing on real devices</li>
+                        <li>App Store submission process</li>
+                    </ul>
+                </div>
+                <div class="curriculum-column">
+                    <h3>🚀 Advanced Section</h3>
+                    <ul>
+                        <li>Cloud code implementation</li>
+                        <li>Database setup and management</li>
+                        <li>User authentication systems</li>
+                        <li>Payment integration (Stripe/Apple Pay)</li>
+                        <li>Advanced security auditing</li>
+                        <li>Performance optimization</li>
+                        <li>Production deployment strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-placeholder">
+            <p style="font-size: 20px; color: #2d3748; margin-bottom: 10px;">"This course changed everything for me. I went from idea to App Store in 3 weeks!"</p>
+            <p>— Future success stories will go here</p>
+        </div>
+
+        <div class="form-section">
+            <h2>Ready to Build Your App?</h2>
+            <p>Don't let technical barriers stop you. Join hundreds of aspiring app creators.</p>
+            <form id="waitlist-form-bottom">
+                <div class="form-group">
+                    <label for="name-bottom">Full Name</label>
+                    <input type="text" id="name-bottom" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-bottom">Email Address</label>
+                    <input type="email" id="email-bottom" name="email" placeholder="your@email.com" required>
+                </div>
+                <button type="submit" class="cta-button">Get Early Access →</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submissions
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const appIdea = document.getElementById('app-idea').value;
+
+            alert(`Thanks for joining the waitlist, ${name}! 🎉\n\nWe'll send you updates at ${email}`);
+
+            // Log to console (in production, this would send to your backend)
+            console.log('Waitlist Signup:', { name, email, appIdea });
+
+            // Reset form
+            this.reset();
+        });
+
+        document.getElementById('waitlist-form-bottom').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name-bottom').value;
+            const email = document.getElementById('email-bottom').value;
+
+            alert(`Thanks for joining the waitlist, ${name}! 🎉\n\nWe'll send you updates at ${email}`);
+
+            console.log('Waitlist Signup:', { name, email });
+
+            this.reset();
+        });
+    </script>
+</body>
+</html>
