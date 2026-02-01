@@ -395,22 +395,7 @@
         <div class="form-section">
             <h2>Join the Waitlist</h2>
             <p>Limited spots available. Be the first to know when enrollment opens.</p>
-            <form id="waitlist-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="app-idea">What's your app idea? (Optional)</label>
-                    <input type="text" id="app-idea" name="app-idea" placeholder="e.g., A fitness tracker for busy parents">
-                </div>
-                <button type="submit" class="cta-button">Get Early Access →</button>
-                <p class="privacy-note">🔒 Your information is safe. We'll never spam or share your email.</p>
-            </form>
+            <iframe data-tally-src="https://tally.so/embed/KY10kk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="313" frameborder="0" marginheight="0" marginwidth="0" title="information"></iframe>
         </div>
 
         <div class="guarantee-section">
@@ -457,48 +442,10 @@
         <div class="form-section">
             <h2>Ready to Build Your App?</h2>
             <p>Don't let technical barriers stop you. Join hundreds of aspiring app creators.</p>
-            <form id="waitlist-form-bottom">
-                <div class="form-group">
-                    <label for="name-bottom">Full Name</label>
-                    <input type="text" id="name-bottom" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email-bottom">Email Address</label>
-                    <input type="email" id="email-bottom" name="email" placeholder="your@email.com" required>
-                </div>
-                <button type="submit" class="cta-button">Get Early Access →</button>
-            </form>
+            <iframe data-tally-src="https://tally.so/embed/KY10kk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="313" frameborder="0" marginheight="0" marginwidth="0" title="information"></iframe>
         </div>
     </div>
 
-    <script>
-        // Handle form submissions
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const appIdea = document.getElementById('app-idea').value;
-
-            alert(`Thanks for joining the waitlist, ${name}! 🎉\n\nWe'll send you updates at ${email}`);
-
-            // Log to console (in production, this would send to your backend)
-            console.log('Waitlist Signup:', { name, email, appIdea });
-
-            // Reset form
-            this.reset();
-        });
-
-        document.getElementById('waitlist-form-bottom').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name-bottom').value;
-            const email = document.getElementById('email-bottom').value;
-
-            alert(`Thanks for joining the waitlist, ${name}! 🎉\n\nWe'll send you updates at ${email}`);
-
-            console.log('Waitlist Signup:', { name, email });
-
-            this.reset();
-        });
-    </script>
+    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 </body>
 </html>
